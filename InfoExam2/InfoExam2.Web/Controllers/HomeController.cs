@@ -60,7 +60,7 @@ namespace InfoExam2.Web.Controllers
 			var rest = _context.Restaraunts.FirstOrDefault(x => x.Name == restName) ??
 			           throw new Exception("No such resta");
 
-			var queryable = _context.Dishes.Where(x=>x.RestId == rest.Id);
+			var queryable = _context.Dishes.Where(x => x.RestId == rest.Id);
 			return View("RestDishes", queryable);
 		}
 
@@ -74,10 +74,10 @@ namespace InfoExam2.Web.Controllers
 			_context.SaveChanges();
 			return Ok();
 		}
-		
+
 		public IActionResult DeleteDishFromRestaraunt(string dishName)
 		{
-			var dish = _context.Dishes.FirstOrDefault(x => x.Name == dishName)??
+			var dish = _context.Dishes.FirstOrDefault(x => x.Name == dishName) ??
 			           throw new Exception("No such dish");
 			dish.RestId = 0;
 			_context.SaveChanges();
@@ -86,13 +86,13 @@ namespace InfoExam2.Web.Controllers
 
 		public IActionResult AddItem(Dish dish)
 		{
-			var user = new User();//_context.Users.FirstOrDefault(x => x.Login ==);
+			var user = new User(); //_context.Users.FirstOrDefault(x => x.Login ==);
 			var currentOrder = user.CurrentOrder == 0 ? new Order() : _context.Orders.Find(user.CurrentOrder);
 			_context.SaveChanges();
 			var orderItem = new OrderItem()
 			{
 				Dish = dish,
-				OrderId =  currentOrder.Id
+				OrderId = currentOrder.Id
 			};
 			var orderItems = _context.OrderItems.Where(x => x.OrderId == currentOrder.Id).ToArray();
 			foreach (var item in orderItems)
@@ -100,6 +100,7 @@ namespace InfoExam2.Web.Controllers
 				if (item.Dish.RestId != dish.RestId)
 					_context.OrderItems.Remove(item);
 			}
+
 			_context.OrderItems.Add(orderItem);
 			_context.SaveChanges();
 			return Ok();
@@ -114,8 +115,18 @@ namespace InfoExam2.Web.Controllers
 			{
 				var promoCode = _context.PromoCodes.FirstOrDefault(x => x.Code == code);
 				if (promoCode != null)
-					sum *= (1 - promoCode.Discount);
+				{
+					if (promoCode.UseCount >= promoCode.UseLimit)
+						_context.PromoCodes.Remove(promoCode);
+					else
+					{
+						sum *= (1 - promoCode.Discount);
+						promoCode.UseCount += 1;
+					}
+				}
 			}
+
+			_context.SaveChanges();
 			return View("Index", new {Sum = sum, ItemsList = orderItems}); //todo
 		}
 	}

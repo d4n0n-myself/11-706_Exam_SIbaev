@@ -69,6 +69,22 @@ namespace InfoExam2.Web
                 {
                     Name = "rest"
                 });
+                applicationDbContext.Orders.Add(new Order
+                {
+                    UserId = applicationDbContext.Users.First().Id
+                });
+                applicationDbContext.OrderItems.Add(new OrderItem()
+                {
+                    Dish = applicationDbContext.Dishes.First(),
+                    OrderId = applicationDbContext.Orders.First().Id
+                });
+                applicationDbContext.PromoCodes.Add(new PromoCode()
+                {
+                    Code = "Discounthere",
+                    Discount = 10.0,
+                    StoreDeadLine = DateTime.Now.AddDays(7),
+                    UseLimit = 100
+                });
                 applicationDbContext.SaveChanges();
             }
             

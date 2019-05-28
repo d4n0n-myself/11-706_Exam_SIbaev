@@ -52,7 +52,7 @@ namespace InfoExam2.Web.Controllers
 				return StatusCode(500);
 			
 			HttpContext.Request.Headers["Authorization"] = $"Cookie {login}:{password}";
-			FormsAuthentication.SetAuthCookie(model.Name, true);
+//			FormsAuthentication.SetAuthCookie(model.Name, true);
 //			var key = AuthentificationOptions.GetSymmetricSecurityKey();
 //			var now = DateTime.UtcNow;
 //			var jwt = new JwtSecurityToken(
