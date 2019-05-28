@@ -15,5 +15,6 @@ namespace InfoExam1.Core
 		public int TimesDownloaded { get; set; }
 		public DateTime UploadDateTime { get; set; }
 		public DateTime StoreDeadline { get; set; }
+		public string OptionalPassword { get; set; }
 	}
 }

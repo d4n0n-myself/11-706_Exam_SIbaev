@@ -42,7 +42,8 @@ namespace InfoExam1.Web.Controllers
 				TimesDownloaded = 0,
 				DownloadCountLimit = int.Parse(formCollection["limit"]),
 				UploadDateTime = DateTime.Now,
-				StoreDeadline = DateTime.Now.AddDays(1)
+				StoreDeadline = DateTime.Now.AddDays(1),
+				OptionalPassword = !string.IsNullOrEmpty(formCollection["password"].ToString()) ? formCollection["password"].ToString() : null
 			};
 			_context.Files.Add(fileEntity);
 			_context.SaveChanges();
