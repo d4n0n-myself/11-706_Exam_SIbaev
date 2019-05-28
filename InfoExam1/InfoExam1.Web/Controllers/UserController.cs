@@ -76,7 +76,7 @@ namespace InfoExam1.Web.Controllers
 
 		public IActionResult DownloadFile(string filename)
 		{
-			var firstOrDefault = _context.Files.FirstOrDefault(x => x.FileName.StartsWith(filename));
+			var firstOrDefault = _context.Files.FirstOrDefault(x => x.FileName== filename ||   x.FileName.StartsWith(filename) );
 			if (firstOrDefault == null)
 				return NotFound();
 			firstOrDefault.TimesDownloaded += 1;

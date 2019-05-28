@@ -7,7 +7,10 @@
 
 <form method="get" asp-action="DownloadFile" asp-controller="User">
     <h3 name="filename" title="filename">@Model.FileName</h3>
-    <input type="hidden" name="filename" value="@Model.FileName}"/>
+    <input type="hidden" name="filename" value="@Model.FileName"/>
     <h4>@Model.ShortDescription</h4>
-    <button type="submit">Go to</button>
+    @Model.Description
+    @Model.TimesDownloaded
+    @Model.UploadDateTime.ToString("U")
+    <button type="submit">Download</button>
 </form>
