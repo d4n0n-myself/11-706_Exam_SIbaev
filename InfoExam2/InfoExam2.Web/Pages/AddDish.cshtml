@@ -1,0 +1,26 @@
+﻿
+@model IEnumerable<InfoExam2.Core.Dish>
+@{
+    ViewData["Title"] = "Privacy Policy";
+}
+<h1>@ViewData["Title"]</h1>
+
+
+<h1>add dish</h1>
+<form style="padding-left: 30px; padding-top: 30px;"
+      method="post"
+      enctype="multipart/form-data"
+      asp-controller="Home"
+      asp-action="AddDish"
+      id="f1">
+    <br>
+    <input type="text" name="restaraunt">
+    <br>
+    <br>
+    
+    Name <input name="name"/>
+    Cost <input type="number" name="cost"/>
+    Description <input name="description"/>
+    <br>
+    <input type="submit" name="log in" value="log in">
+</form>

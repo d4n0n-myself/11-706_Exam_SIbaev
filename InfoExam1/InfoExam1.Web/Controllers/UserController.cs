@@ -79,13 +79,16 @@ namespace InfoExam1.Web.Controllers
 			return View("/Views/Files.cshtml", array);
 		}
 
-		public IActionResult DownloadFile(string filename)
+		public IActionResult DownloadFile(string filename, string password)
 		{
 			var firstOrDefault = _context.Files.FirstOrDefault(x => x.FileName== filename ||   x.FileName.StartsWith(filename) );
 			if (firstOrDefault == null)
 				return NotFound();
 			firstOrDefault.TimesDownloaded += 1;
 			_context.SaveChanges();
+			
+//			if (!string.IsNullOrEmpty(firstOrDefault.OptionalPassword) && firstOrDefault.OptionalPassword != password)
+//				return 
 
 			var readAllBytes = System.IO.File.ReadAllBytes($"{filename}");
 			var reg = Microsoft.Win32.Registry.ClassesRoot.OpenSubKey(Path.GetExtension($"{filename}").ToLower());

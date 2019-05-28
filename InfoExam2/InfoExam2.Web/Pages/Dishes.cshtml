@@ -1,0 +1,14 @@
+﻿
+@model IEnumerable<InfoExam2.Core.Dish>
+@{
+    ViewData["Title"] = "Privacy Policy";
+}
+<h1>@ViewData["Title"]</h1>
+
+@foreach (var p in Model)
+{
+    <div>
+        Name: @p.Name <br/>
+        Cost: @p.Cost <br./>
+    </div>
+}

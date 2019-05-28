@@ -1,0 +1,28 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "InfoExam2.Web", "InfoExam2.Web\InfoExam2.Web.csproj", "{676FA2E7-D549-4FA5-A794-790E04345F46}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "InfoExam2.Core", "InfoExam2.Core\InfoExam2.Core.csproj", "{8780B654-302A-4143-B58D-302D58BA3D5C}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "InfoExam2.Infrastructure", "InfoExam2.Infrastructure\InfoExam2.Infrastructure.csproj", "{48A03018-0469-4AFE-B7BA-E94F40CA74C9}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{676FA2E7-D549-4FA5-A794-790E04345F46}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{676FA2E7-D549-4FA5-A794-790E04345F46}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{676FA2E7-D549-4FA5-A794-790E04345F46}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{676FA2E7-D549-4FA5-A794-790E04345F46}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8780B654-302A-4143-B58D-302D58BA3D5C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8780B654-302A-4143-B58D-302D58BA3D5C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8780B654-302A-4143-B58D-302D58BA3D5C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8780B654-302A-4143-B58D-302D58BA3D5C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{48A03018-0469-4AFE-B7BA-E94F40CA74C9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{48A03018-0469-4AFE-B7BA-E94F40CA74C9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{48A03018-0469-4AFE-B7BA-E94F40CA74C9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{48A03018-0469-4AFE-B7BA-E94F40CA74C9}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+EndGlobal

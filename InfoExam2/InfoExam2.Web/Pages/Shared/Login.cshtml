@@ -1,0 +1,42 @@
+﻿
+@{
+    ViewData["Title"] = "Privacy Policy";
+}
+<h1>@ViewData["Title"]</h1>
+
+<h1>login</h1>
+<form style="padding-left: 30px; padding-top: 30px;"
+      method="post"
+      enctype="multipart/form-data"
+      asp-controller="Users"
+      asp-action="Authorize"
+      id="f1">
+    Login
+    <br>
+    <input type="text" name="login" value="admin">
+    <br>
+    Password
+    <br>
+    <input type="password" name="password" value="admin">
+    <br>
+    <input type="submit" name="log in" value="log in">
+</form>
+
+<h1>register</h1>
+<form style="padding-left: 30px; padding-top: 30px;"
+      method="post"
+      enctype="multipart/form-data"
+      asp-controller="Users"
+      asp-action="Register"
+      id="f11">
+    Login
+    <br>
+    <input type="text" name="login" value="admin">
+    <br>
+    Password
+    <br>
+    <input type="password" name="password" value="admin">
+    <br>
+    <input type="submit" name="log in" value="log in">
+</form>
+
