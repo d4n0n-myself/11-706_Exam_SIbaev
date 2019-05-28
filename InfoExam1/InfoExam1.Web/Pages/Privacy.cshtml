@@ -1,0 +1,17 @@
+﻿@page
+@model InfoExam1.Web.Pages.PrivacyModel
+@{
+    ViewData["Title"] = "Privacy Policy";
+}
+<h1>@ViewData["Title"]</h1>
+
+<p>Use this page to detail your site's privacy policy.</p>
+
+
+<form enctype="multipart/form-data" method="post" asp-action="AddFile" asp-controller="User">
+    <input type="file" name="File" value="File">
+    <input name="ShortDesc"/>
+    <input type="number" name="limit"/>
+    <textarea name="Description"></textarea>
+    <button type="submit" value="Submit"></button>
+</form>

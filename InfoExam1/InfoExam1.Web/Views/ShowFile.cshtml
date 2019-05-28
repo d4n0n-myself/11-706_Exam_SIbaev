@@ -1,0 +1,13 @@
+﻿@model InfoExam1.Core.File
+@{
+    ViewData["Title"] = "Show File";
+}
+<h1>@ViewData["Title"]</h1>
+
+
+<form method="get" asp-action="DownloadFile" asp-controller="User">
+    <h3 name="filename" title="filename">@Model.FileName</h3>
+    <input type="hidden" name="filename" value="@Model.FileName}"/>
+    <h4>@Model.ShortDescription</h4>
+    <button type="submit">Go to</button>
+</form>

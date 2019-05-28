@@ -1,0 +1,17 @@
+﻿@model IEnumerable<InfoExam1.Core.File>
+@{
+    ViewData["Title"] = "Files";
+}
+<h1>@ViewData["Title"]</h1>
+
+@foreach (var p in Model)
+{
+    <div class="item">
+        <form method="get" asp-action="GetFile" asp-controller="User">
+            <h3 name="filename" title="filename">@p.FileName</h3>
+            <input type="hidden" name="filename" value="@p.FileName}"/>
+            <h4>@p.ShortDescription</h4>
+            <button type="submit">Go to</button>
+        </form>
+    </div>
+}
