@@ -1,10 +1,8 @@
 using System;
 using System.IO;
 using System.Linq;
-using System.Net;
 using InfoExam1.Infrastructure;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.CodeAnalysis.CSharp.Syntax;
 using File = InfoExam1.Core.File;
 
 namespace InfoExam1.Web.Controllers
@@ -43,7 +41,8 @@ namespace InfoExam1.Web.Controllers
 				FileName = file.FileName,
 				TimesDownloaded = 0,
 				DownloadCountLimit = int.Parse(formCollection["limit"]),
-				UploadDateTime = DateTime.Now
+				UploadDateTime = DateTime.Now,
+				StoreDeadline = DateTime.Now.AddDays(1)
 			};
 			_context.Files.Add(fileEntity);
 			_context.SaveChanges();
@@ -65,6 +64,11 @@ namespace InfoExam1.Web.Controllers
 		public IActionResult GetFile(string filename)
 		{
 			var file = _context.Files.FirstOrDefault(x => x.FileName.StartsWith(filename));
+			if (file.StoreDeadline < DateTime.Now)
+			{
+				_context.Files.Remove(file);
+				return View("Error", new InvalidOperationException("File storage time has expired"));
+			}
 			return View("ShowFile", file);
 		}
 		
