@@ -47,9 +47,21 @@ namespace InfoExam1.Web
 					DownloadCountLimit = 3,
 					TimesDownloaded = 0
 				});
+				applicationDbContext.Files.Add(new File
+				{
+					Description = "this is description",
+					ShortDescription = " tttt tshort description",
+					FileName = "abc.txt",
+					DownloadCountLimit = 3,
+					TimesDownloaded = 0
+				});
 				applicationDbContext.SaveChanges();
 			}
 			using (var streamWriter = System.IO.File.CreateText("file.txt"))
+			{
+				streamWriter.Write(123);
+			}
+			using (var streamWriter = System.IO.File.CreateText("abc.txt"))
 			{
 				streamWriter.Write(123);
 			}

@@ -18,6 +18,12 @@ namespace InfoExam1.Web.Controllers
 			_context = context;
 		}
 
+		public IActionResult Find(string sdesc)
+		{
+			var file = _context.Files.FirstOrDefault(x => x.ShortDescription.Contains(sdesc));
+			return View("ShowFile", file);
+		}
+
 		[HttpPost]
 		public IActionResult AddFile()
 		{
@@ -59,12 +65,12 @@ namespace InfoExam1.Web.Controllers
 		public IActionResult GetFile(string filename)
 		{
 			var file = _context.Files.FirstOrDefault(x => x.FileName.StartsWith(filename));
-			return View("/Views/ShowFile.cshtml", file);
+			return View("ShowFile", file);
 		}
 		
 		public IActionResult FilesByDescription()
 		{
-			var array = _context.Files.OrderBy( x=> x.FileName).ToArray();
+			var array = _context.Files.OrderBy( x=> x.ShortDescription).ToArray();
 			return View("/Views/Files.cshtml", array);
 		}
 

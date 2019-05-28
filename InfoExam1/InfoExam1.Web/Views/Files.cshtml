@@ -4,6 +4,21 @@
 }
 <h1>@ViewData["Title"]</h1>
 
+
+<form action="/User/FilesByName" method="get">
+    <input type="submit" value="Show files by name" 
+           name="Submit1" />
+</form>
+<form action="/User/FilesByDescription" method="get">
+    <input type="submit" value="Show files by short desc" 
+           name="Submit21" id="frm1_submit" />
+</form>
+<form action="/User/Find" method="get">
+    <input name="sdesc" id="frm1_submit12312313" />
+    <input type="submit" value="Show files by short desc"
+           name="Submit21" id="frm1_submit"/>
+</form>
+
 @foreach (var p in Model)
 {
     <div class="item">
